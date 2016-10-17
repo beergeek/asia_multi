@@ -1,13 +1,6 @@
 ---
-# Variables
 variables:
   - &enable_firewall true
-
-# BASE
-profile::base::enable_firewall: *enable_firewall
-
-# COM
-profile::com::enable_firewall: *enable_firewall
 
 # Load Balancer
 profile::lb_services::haproxy::enable_firewall: *enable_firewall
@@ -19,31 +12,13 @@ profile::lb_services::haproxy::listeners:
     options:
       mode: 'http'
       stats: ['uri /', 'auth puppet:puppet']
-  puppet00_hkg:
+  puppet00-hkg:
     collect_exported: true
     ipaddress: "%{::ipaddress_enp0s8}"
     ports: '8140'
     options:
       mode: 'tcp'
-  puppet00_sin:
-    collect_exported: true
-    ipaddress: "%{::ipaddress_enp0s8}"
-    ports: '8140'
-    options:
-      mode: 'tcp'
-  puppet00_kl0:
-    collect_exported: true
-    ipaddress: "%{::ipaddress_enp0s8}"
-    ports: '8140'
-    options:
-      mode: 'tcp'
-  puppet00_kl1:
-    collect_exported: true
-    ipaddress: "%{::ipaddress_enp0s8}"
-    ports: '8140'
-    options:
-      mode: 'tcp'
-  mco00:
+  mco00-hkg:
     collect_exported: true
     ipaddress: "%{::ipaddress_enp0s8}"
     ports: '61613'
