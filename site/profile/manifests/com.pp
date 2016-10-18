@@ -30,14 +30,14 @@ class profile::com {
   @@haproxy::balancermember { "master00-${::fqdn}":
     listening_service => "puppet00-${trusted['extensions']['pp_datacenter']}",
     server_names      => $::fqdn,
-    ipaddresses       => $::ipaddress_eth1,
+    ipaddresses       => $::ipaddress_enp0s8,
     ports             => '8140',
     options           => 'check',
   }
   @@haproxy::balancermember { "mco00-${::fqdn}":
     listening_service => "mco00-${trusted['extensions']['pp_datacenter']}",
     server_names      => $::fqdn,
-    ipaddresses       => $::ipaddress_eth1,
+    ipaddresses       => $::ipaddress_enp0s8,
     ports             => '61613',
     options           => 'check',
   }
