@@ -1,6 +1,6 @@
 class profile::base {
 
-  $enable_firewall = hiera('profile::base;:enable_firewall',true)
+  $enable_firewall = hiera('profile::base::enable_firewall',true)
 
   case $::kernel {
     'linux': {
